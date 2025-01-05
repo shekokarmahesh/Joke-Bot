@@ -7,12 +7,12 @@ dotenv.config();
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
 
-// bot.on('message', (option) => {
-//     console.log("Message received on the bot", option);
+bot.on('message', (option) => {
+    console.log("Message received on the bot", option);
 
-//     bot.sendMessage(option.chat.id, "Hello, I am a bot. I am here to help you with your queries. Please type /help to know more about me.");
+    bot.sendMessage(option.chat.id, "Hello, I am a Joke Bot. I can tell you jokes. Just type /joke to get a joke");
 
-// });
+});
 
 bot.onText(/\/joke/, async (option) => {
     const response = await axios.get('https://official-joke-api.appspot.com/random_joke');
